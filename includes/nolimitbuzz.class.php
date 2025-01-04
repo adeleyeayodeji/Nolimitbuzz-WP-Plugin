@@ -37,6 +37,13 @@ class Nolimitbuzz
         add_shortcode('portfolio', array($this, 'portfolio_shortcode'));
         //enqueue styles
         add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
+        //register team member post type
+        add_action('init', array($this, 'register_team_member_post_type'));
+        //template redirect for team members
+        add_action('template_redirect', array($this, 'template_redirect_for_team_members'));
+        add_action('init', function () {
+            flush_rewrite_rules();
+        });
     }
 
     /** 
@@ -50,6 +57,37 @@ class Nolimitbuzz
             self::$instance = new self();
         }
         return self::$instance;
+    }
+
+    /**
+     * template_redirect_for_team_members
+     * 
+     * @return void
+     */
+    public function template_redirect_for_team_members()
+    {
+        // Check if the current post type is 'team_member'
+        if (is_singular('team_member')) {
+            //get the team member
+            $team_member = get_post(get_the_ID());
+            //get the team members views
+            echo $this->get_team_members_views($team_member);
+            exit;
+        }
+    }
+
+    /**
+     * Get team members views
+     *  
+     * @param WP_Post $team_member
+     * @return mixed
+     */
+    public function get_team_members_views($team_member)
+    {
+        ob_start();
+        //get the team member
+        require_once NO_LIMIT_BUZZ_PLUGIN_DIR . 'templates/team-members.php';
+        return ob_get_clean();
     }
 
     /**
@@ -105,11 +143,40 @@ class Nolimitbuzz
     }
 
     /**
+     * Register team member post type
+     * 
+     * @return void
+     */
+    public function register_team_member_post_type()
+    {
+        //register team member post type
+        register_post_type('team_member', array(
+            'labels' => array(
+                'name' => __('Team Members'),
+                'singular_name' => __('Team Members'),
+                'add_new_item' => __('Add New Team Members'),
+                'edit_item' => __('Edit Team Members'),
+                'new_item' => __('New Team Members'),
+                'view_item' => __('View Team Members'),
+                'search_items' => __('Search Team Members'),
+                'not_found' => __('No team members found'),
+                'not_found_in_trash' => __('No team members found in trash'),
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'show_ui' => true,
+            'query_var' => true,
+            'hierarchical' => false,
+            'supports' => array('title', 'thumbnail'),
+            'rewrite' => array('slug' => 'team-members'),
+        ));
+    }
+
+    /**
      * Portfolio shortcode
      * 
      * @return string
      */
-    // ... existing code ...
     public function portfolio_shortcode()
     {
         //args for the query

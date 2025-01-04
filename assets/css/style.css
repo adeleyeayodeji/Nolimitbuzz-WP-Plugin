@@ -78,3 +78,42 @@
   object-fit: cover;
   object-position: center;
 }
+
+.no-limit-buzz--post-content-profile-data {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  flex-wrap: wrap;
+  max-width: 400px;
+}
+
+.no-limit-buzz--post-content-profile-data img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  border: 2px solid #662bc5;
+}
+
+.no-limit-buzz--post-content-profile-data h4 {
+  margin: 0;
+  font-size: 1em;
+  color: #333;
+  font-weight: 600;
+}
+
+.no-limit-buzz--post-content-profile-data a {
+  margin-left: auto;
+  text-decoration: none;
+  color: #662bc5;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.no-limit-buzz--post-content-profile-data a:hover {
+  color: #333;
+}

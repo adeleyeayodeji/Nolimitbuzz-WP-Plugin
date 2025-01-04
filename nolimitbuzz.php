@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: Nolimitbuzz
+ * Plugin Name: Nolimitbuzz Core
  * Plugin URI:  https://nolimitbuzz.com
  * Author:      Nolimitbuzz
  * Author URI:  https://nolimitbuzz.com

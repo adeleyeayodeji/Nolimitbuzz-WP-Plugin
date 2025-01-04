@@ -4,16 +4,23 @@
 }
 
 .portfolio-group h2 {
-  font-size: 24px;
+  font-size: 20px;
   color: #333;
   margin-bottom: 10px;
-  border-bottom: 2px solid #ddd;
+  border-bottom: none;
   padding-bottom: 5px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
 }
 
 .portfolio-group ul {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .portfolio-group ul li {
@@ -26,4 +33,48 @@
 
 .portfolio-group ul li:hover {
   background-color: #e9e9e9;
+}
+
+.portfolio-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.portfolio-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 12px 10px;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+
+.portfolio-card h3 {
+  margin-top: 0;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 7px;
+  color: #2d3748;
+  font-family: "Inter", sans-serif;
+}
+
+.portfolio-card p {
+  margin: 0;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: #718096;
+}
+
+.portfolio-thumbnail img {
+  max-width: 100%;
+  height: 135px;
+  border-radius: 4px;
+  object-fit: cover;
+  object-position: center;
 }

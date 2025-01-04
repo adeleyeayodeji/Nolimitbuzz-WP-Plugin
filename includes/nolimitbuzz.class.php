@@ -39,7 +39,7 @@ class Nolimitbuzz
         add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
     }
 
-    /**
+    /** 
      * Get instance
      * 
      * @return Nolimitbuzz
@@ -60,7 +60,7 @@ class Nolimitbuzz
     public function enqueue_styles()
     {
         //enqueue styles for the plugin
-        wp_enqueue_style('nolimitbuzz-style', NO_LIMIT_BUZZ_PLUGIN_URL . 'assets/css/style.css', array(), NO_LIMIT_BUZZ_PLUGIN_VERSION, 'all');
+        wp_enqueue_style('nolimitbuzz-style-for-portfolio', NO_LIMIT_BUZZ_PLUGIN_URL . 'assets/css/style.css', array(), NO_LIMIT_BUZZ_PLUGIN_VERSION, 'all');
     }
 
     /**
@@ -138,18 +138,22 @@ class Nolimitbuzz
                 foreach ($terms as $term) {
                     $output .= '<div class="portfolio-group">';
                     $output .= '<h2>' . esc_html($term->name) . '</h2>';
-                    $output .= '<ul>';
+                    $output .= '<div class="portfolio-cards">'; // Changed from <ul> to <div> for card layout
 
                     //loop through portfolios
                     while ($query->have_posts()) {
                         $query->the_post();
                         if (has_term($term->term_id, 'portfolio_category')) {
-                            $output .= '<li>' . get_the_title() . '</li>';
+                            $output .= '<div class="portfolio-card">'; // Card container
+                            $output .= '<div class="portfolio-thumbnail">' . get_the_post_thumbnail(null, 'full') . '</div>'; // Thumbnail
+                            $output .= '<h3>' . get_the_title() . '</h3>'; // Card title
+                            $output .= '<p>' . get_the_excerpt() . '</p>'; // Excerpt
+                            $output .= '</div>'; // End of card
                         }
                     }
 
-                    $output .= '</ul>';
-                    $output .= '</div>';
+                    $output .= '</div>'; // End of portfolio-cards
+                    $output .= '</div>'; // End of portfolio-group
                     //reset post data
                     wp_reset_postdata();
                 }

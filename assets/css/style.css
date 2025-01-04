@@ -1,0 +1,29 @@
+/* Portfolio Group List Styles */
+.portfolio-group {
+  margin-bottom: 30px;
+}
+
+.portfolio-group h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.portfolio-group ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.portfolio-group ul li {
+  background-color: #f9f9f9;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.portfolio-group ul li:hover {
+  background-color: #e9e9e9;
+}

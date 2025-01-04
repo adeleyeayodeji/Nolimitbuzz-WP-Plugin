@@ -3,12 +3,12 @@
 /**
  * Plugin Name: Nolimitbuzz Core
  * Plugin URI:  https://nolimitbuzz.com
- * Author:      Nolimitbuzz
- * Author URI:  https://nolimitbuzz.com
+ * Author:      Adeleye Ayodeji
+ * Author URI:  https://adeleyeayodeji.com
  * Description: This plugin extends the functionality of the Nolimitbuzz theme.
  * Version:     0.1.0
- * License:     GPL-2.0+
- * License URL: http://www.gnu.org/licenses/gpl-2.0.txt
+ * License:     GPL-3.0+
+ * License URL: http://www.gnu.org/licenses/gpl-3.0.txt
  * text-domain: nolimitbuzz
  */
 
